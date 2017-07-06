@@ -1145,6 +1145,18 @@ public class MockTransaction extends Transaction {
         return resp;
     }
 
+    public Response<Double> zscore(String key, String member) {
+        Response resp = pipeline.zscore(key, member);
+        responses.add(resp);
+        return resp;
+    }
+
+    public Response<Double> zscore(byte[] key, byte[] member) {
+        Response resp = pipeline.zscore(key, member);
+        responses.add(resp);
+        return resp;
+    }
+
     @Override
     public Response<Long> zcount(String key, double min, double max) {
         Response resp = pipeline.zcount(key, min, max);
